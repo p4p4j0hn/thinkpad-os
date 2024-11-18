@@ -1,4 +1,4 @@
-# thinkpad-os &nbsp; [![bluebuild build badge](https://github.com/p4p4j0hn/thinkpad-os/actions/workflows/build.yml/badge.svg)](https://github.com/p4p4j0hn/thinkpad-os/actions/workflows/build.yml)
+# bluefin-tlp &nbsp; [![bluebuild build badge](https://github.com/p4p4j0hn/bluefin-tlp/actions/workflows/build.yml/badge.svg)](https://github.com/p4p4j0hn/bluefin-tlp/actions/workflows/build.yml)
 
 See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
 
@@ -12,18 +12,25 @@ After setup, it is recommended you update this README to describe your custom im
 To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
+
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/p4p4j0hn/thinkpad-os:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/p4p4j0hn/bluefin-tlp:latest
   ```
+
 - Reboot to complete the rebase:
+
   ```
   systemctl reboot
   ```
+
 - Then rebase to the signed image, like so:
+
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/p4p4j0hn/thinkpad-os:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/p4p4j0hn/bluefin-tlp:latest
   ```
+
 - Reboot again to complete the installation
+
   ```
   systemctl reboot
   ```
@@ -39,5 +46,5 @@ If build on Fedora Atomic, you can generate an offline ISO with the instructions
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/p4p4j0hn/thinkpad-os
+cosign verify --key cosign.pub ghcr.io/p4p4j0hn/bluefin-tlp
 ```
